@@ -33,6 +33,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+Widget Fconatainer(String title,Color color)
+{
+  return  Container(
+            padding: EdgeInsets.all(15),
+            child: Text(title,style: TextStyle(fontSize: 30),),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors:[
+                color.withOpacity(0.7),
+                color
+              ],
+              begin: AlignmentDirectional.topStart ,
+              end:AlignmentDirectional.bottomEnd ),
+            )
+            
+           );
+
+}
 
   @override
   Widget build(BuildContext context) {
@@ -43,40 +60,32 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter App"),
       ),
       body:Container(
-        child: Row(
-          //crossAxisAlignment: CrossAxisAlignment.stretch,
+        padding: EdgeInsets.only(top: 15),
+        child: GridView(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200 ,
+                      childAspectRatio: 3/2,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+          ),
           children: [
-            Expanded(
-              child: Image.asset("assets/images/x.jpg"),
-              flex: 3,
-              ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.cyan,
-                child: Text("0"),
-              ),
-            ),
-            Expanded(
-              flex:1 ,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.pinkAccent,
-                child: Text("1"),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.amber,
-                child: Text("2"),
-              ),
-            ),
+         Fconatainer("YOusif1",Colors.red),
+         Fconatainer("YOusif2",Colors.green),
+         Fconatainer("YOusif3",Colors.black),
+         Fconatainer("YOusif3",Colors.amber),
+
+           Fconatainer("YOusif1",Colors.red),
+         Fconatainer("YOusif2",Colors.green),
+         Fconatainer("YOusif3",Colors.black),
+         Fconatainer("YOusif3",Colors.amber),
+
+           Fconatainer("YOusif1",Colors.red),
+         Fconatainer("YOusif2",Colors.green),
+         Fconatainer("YOusif3",Colors.black),
+         Fconatainer("YOusif3",Colors.amber),
           ],
-        ),
       )
+    ) 
     );
   }
 }
