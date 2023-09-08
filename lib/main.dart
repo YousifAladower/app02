@@ -47,7 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
           //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
+              child: Image.asset("assets/images/x.jpg"),
               flex: 3,
+              ),
+            Expanded(
+              flex: 1,
               child: Container(
                 padding: EdgeInsets.all(30),
                 color: Colors.cyan,
@@ -55,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex:1 ,
               child: Container(
                 padding: EdgeInsets.all(30),
                 color: Colors.pinkAccent,
