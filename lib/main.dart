@@ -41,9 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter App"),
       ),
       body:Container(
-       // height: double.infinity,
+        height: double.infinity,
         color: b,
-        child: Image.network("https://love-words.net/wp-content/uploads/2019/07/8418-3.jpg"),
+        child: Column(
+          children: [
+            Image.network("https://love-words.net/wp-content/uploads/2019/07/8418-3.jpg"
+            ,fit: BoxFit.cover,),
+            Image.asset("assets/images/x.jpg"),
+          ],
+        ),
       ) ,
       // This trailing comma makes auto-formatting nicer for build methods.
     );
