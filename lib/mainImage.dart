@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,21 +32,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-DateTime _selectedDate = DateTime.now();
-
-void _dataPicker()
-{
-  showDatePicker(
-    context: context,
-     initialDate: DateTime.now(), 
-     firstDate:DateTime(2020),
-      lastDate: DateTime.now()
-      ).then((value) {
-        if(value==null){return;}
-        setState(()=>_selectedDate = value);
-      });
-
-}
   @override
   Widget build(BuildContext context) {
 
@@ -56,12 +40,18 @@ void _dataPicker()
 
         title: Text("Flutter App"),
       ),
-      body:Center(
-        child: ElevatedButton(
-          onPressed:_dataPicker,
-           child:Text('${DateFormat.yMMMd().format(_selectedDate)}'),
+      body:Container(
+        height: double.infinity,
+        color: b,
+        child: Column(
+          children: [
+            Image.network("https://love-words.net/wp-content/uploads/2019/07/8418-3.jpg"
+            ,fit: BoxFit.cover,),
+            Image.asset("assets/images/x.jpg"),
+          ],
+        ),
       ) ,
-    )
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
