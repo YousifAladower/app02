@@ -33,7 +33,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+DateTime _selectedDate = DateTime.now();
 
+void _dataPicker()
+{
+  showDatePicker(
+    context: context,
+     initialDate: DateTime.now(), 
+     firstDate:DateTime(2020),
+      lastDate: DateTime.now()
+      ).then((value) {
+        if(value==null){return;}
+        setState(()=>_selectedDate = value);
+      });
+
+}
   @override
   Widget build(BuildContext context) {
 
@@ -42,37 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text("Flutter App"),
       ),
-      body:Container(
-        child: Row(
-          //crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.cyan,
-                child: Text("0"),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.pinkAccent,
-                child: Text("1"),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                padding: EdgeInsets.all(30),
-                color: Colors.amber,
-                child: Text("2"),
-              ),
-            ),
-          ],
-        ),
-      )
+      body:Center(
+        child: ElevatedButton(
+          onPressed:_dataPicker,
+           child:Text('${DateFormat.yMMMd().format(_selectedDate)}'),
+      ) ,
+    )
     );
   }
 }
