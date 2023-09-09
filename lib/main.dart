@@ -38,24 +38,47 @@ void selectedScreen (BuildContext ctx,int n)
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Main Screen"),
-      ), 
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        
-          children: [
-            InkWell(
-              child: Text("Got to screen 1",style: TextStyle(fontSize: 30)),
-              onTap: ()=>selectedScreen(context,1),
-              ),
-            InkWell( 
-              child: Text("Got to screen 2",style: TextStyle(fontSize: 30)),
-              onTap: ()=>selectedScreen(context,2),
-              ),
-          ],
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Main Screen"),
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.category),text: ("data1"),),
+              Tab(icon: Icon(Icons.star),text: ("data2"),),
+
+            ]
+          ),
+        ), 
+        body:TabBarView(children: [
+          Scaffold(
+            body: Center(
+              child: Text("data1")
+            ),
+          ),
+          Scaffold(
+            body: Center(
+              child: Text("data2")
+            ),
+          )
+        ]),
+        drawerScrimColor: Colors.pinkAccent.withOpacity(0.5),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text("Got to screen 1",style: TextStyle(fontSize: 30)),
+                onTap: ()=>selectedScreen(context,1),
+                trailing: Icon(Icons.arrow_forward_ios),
+                ),
+              ListTile( 
+                title: Text("Got to screen 2",style: TextStyle(fontSize: 30)),
+                onTap: ()=>selectedScreen(context,2),
+                trailing: Icon(Icons.arrow_forward_ios),
+                ),
+            ],
+          ),
         ),
       ),
     );
