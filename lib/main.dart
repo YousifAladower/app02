@@ -9,7 +9,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:MyHomePage()
+      home:MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/':(context)=>MyHomePage(),
+        '/x1':(context)=>Screen1(),
+        '/x2':(context)=>Screen2(),
+      },
     );
   }
 }
@@ -18,15 +24,9 @@ class MyHomePage extends StatelessWidget{
 
 void selectedScreen (BuildContext ctx,int n)
 {
-  Navigator.of(ctx).push(MaterialPageRoute(
-    builder:(_){
-      if(n==1)
-      return Screen1("information1");
-      else
-      return Screen2("information2 fd");
-
-    } ) 
-    );
+  Navigator.of(ctx).pushNamed(
+    '/x',
+  );
 
 }
 

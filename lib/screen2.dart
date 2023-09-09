@@ -3,14 +3,14 @@ import 'screen1.dart';
 
 class Screen2 extends StatelessWidget {
   
-final String str1;
-Screen2(this.str1);
+// final String str1;
+// Screen2(this.str1);
 
   void selectedScreen (BuildContext ctx)
 {
   Navigator.of(ctx).pushReplacement(MaterialPageRoute(
     builder:(_){
-      return Screen1("");
+      return Screen1();
 
     } ) 
     );
@@ -25,7 +25,7 @@ Screen2(this.str1);
       body:  Center(
         child:  Column(
           children: [
-            Text(str1),
+            Text(""),
             InkWell(
                   child: Text("Got to screen 1",style: TextStyle(fontSize: 30)),
                   onTap: ()=>selectedScreen(context),
