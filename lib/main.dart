@@ -9,12 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:MyHomePage(),
+     // home:MyHomePage(),
       initialRoute: '/',
       routes: {
         '/':(context)=>MyHomePage(),
-        '/x1':(context)=>Screen1(),
-        '/x2':(context)=>Screen2(),
+       Screen1.RoutName:(context)=>Screen1(),
+       '/x2':(context)=>Screen2(),
       },
     );
   }
@@ -22,10 +22,16 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget{
 
-void selectedScreen (BuildContext ctx,int n)
+void selectedScreen (BuildContext ctx,int n) 
 {
   Navigator.of(ctx).pushNamed(
-    '/x',
+   n==1?Screen1.RoutName:'/x2',
+
+   arguments: {
+    'id':n==1?10:60,
+    'name':n==1?"youisf":"aladower",
+    'job':"programers"
+   }
   );
 
 }

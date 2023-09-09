@@ -8,12 +8,9 @@ class Screen2 extends StatelessWidget {
 
   void selectedScreen (BuildContext ctx)
 {
-  Navigator.of(ctx).pushReplacement(MaterialPageRoute(
-    builder:(_){
-      return Screen1();
-
-    } ) 
-    );
+  Navigator.of(ctx).pushReplacementNamed(
+  Screen1.RoutName
+  );
 
 }
   @override
