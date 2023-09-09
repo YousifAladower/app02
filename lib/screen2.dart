@@ -1,3 +1,4 @@
+import 'package:app02/drawer.dart';
 import 'package:flutter/material.dart';
 import 'screen1.dart';
 
@@ -30,6 +31,7 @@ class Screen2 extends StatelessWidget {
           ],
         ),
       ),
+      drawer: MyDrawer(),
     );
   }
 }

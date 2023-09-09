@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer.dart';
 import 'screen2.dart';
 
 
@@ -43,6 +44,7 @@ void selectedScreen (BuildContext ctx)
           ],
         ),
       ),
+      drawer: MyDrawer() ,
     );
   }
 }
